@@ -49,6 +49,14 @@ WHERE dispute_lost = 1
 GROUP BY country
 ORDER BY COUNT(country);
 
+-- Top 10 Customers with the Highest Invoice Amount
+
+SELECT country, invoice_amount
+FROM  invoices
+WHERE dispute_lost != 1
+ORDER BY invoice_amount DESC
+LIMIT 10
+
 -- Revenue Lost per Country
 
 SELECT country, SUM(invoice_amount) AS revenue_lost
